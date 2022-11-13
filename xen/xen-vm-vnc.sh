@@ -27,7 +27,7 @@ fi
 
 sshhost="$1"
 
-vncport=$(ssh "$sshhost" "$(cat <<'SSHEOF'
+remotescript=$(cat <<'SSHEOF'
 set -e
 for cmd in xe socat; do
 	if ! command -v "$cmd" &>/dev/null; then
@@ -64,5 +64,7 @@ fi
 echo "$domid"
 (socat TCP-LISTEN:$((5900+domid)),bind=127.0.0.1 UNIX-CONNECT:/var/run/xen/vnc-"$domid" &>/dev/null &) || true
 SSHEOF
-)")
+)
+
+vncport=$(ssh "$sshhost" "$remotescript")
 vncviewer -via "$sshhost" "127.0.0.1:$vncport"
