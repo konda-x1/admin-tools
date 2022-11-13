@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # Description:
-# Provides a VNC connection to a Xen VM without the need to configure networking on the
-# target VM, as long as there is a connection to the Xen server itself.
+# Provides a VNC connection to a Xen VM without the need to configure networking or install
+# a VNC server on the target VM, as long as there is a connection to the Xen server itself.
 #
-# Connects to a Xen server via ssh, lists available VMs and lets you choose which VM
-# you want to connect to via VNC. Locally you must have vncviewer installed, and the
-# remote needs to have socat and xe available. The VNC connection works by first creating
-# an ssh tunnel and then connecting to 127.0.0.1 with the appropriate port on the remote
-# host -- vncviewer takes care of this. And the script ensures the appropriate local port
-# on the remote host is forwarded to point to a corresponding VNC socket file located in
+# Connects to a Xen server via ssh, lists available VMs and lets you choose which VM you
+# want to connect to via VNC. Locally you must have vncviewer installed, and the remote
+# needs to have socat and xe available. The VNC connection works by first creating an ssh
+# tunnel and then connecting to 127.0.0.1 with the appropriate port on the remote host --
+# vncviewer takes care of this. And the script ensures the appropriate local port on the
+# remote host is forwarded to point to a corresponding VNC socket file located in
 # /var/run/xen.
 
 set -e
