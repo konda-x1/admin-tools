@@ -32,7 +32,7 @@ set -e
 for cmd in xe socat; do
 	if ! command -v "$cmd" &>/dev/null; then
 		echo "remote: Command 'xe' not found" >&2
-		exit 2
+		exit 3
 	fi
 done
 uuids=$(xe vm-list power-state=running params=uuid | awk -F'[[:space:]]*:[[:space:]]*' 'NF==2{print $2}')
