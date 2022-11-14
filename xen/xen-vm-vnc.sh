@@ -21,7 +21,7 @@ fi
 
 if [ ! "$1" ]; then
 	>&2 echo "\
-usage: $0 [user@]hostname"
+usage: $0 [user@]hostname [vncviewer-options]"
 	exit 2
 fi
 
@@ -67,4 +67,4 @@ SSHEOF
 )
 
 vncport=$(ssh "$sshhost" "$remotescript")
-vncviewer -via "$sshhost" "127.0.0.1:$vncport"
+vncviewer -via "$sshhost" "127.0.0.1:$vncport" "${@:2}"
