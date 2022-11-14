@@ -62,7 +62,7 @@ else
 	domid=$(head -n 1 <<<"$doms")
 fi
 echo "$domid"
-(socat TCP-LISTEN:$((5900+domid)),bind=127.0.0.1 UNIX-CONNECT:/var/run/xen/vnc-"$domid" &>/dev/null &) || true
+(socat TCP-LISTEN:$((5900+domid)),fork,bind=127.0.0.1 UNIX-CONNECT:/var/run/xen/vnc-"$domid" &>/dev/null &) || true
 SSHEOF
 )
 
