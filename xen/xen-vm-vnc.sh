@@ -29,6 +29,7 @@ fi
 sshhost="$1"
 
 remotescript=$(cat <<'SSHEOF'
+sh -c 'sleeptime=5; if [ $(basename "$SHELL") != "bash" ]; then echo "Warning: remote shell ($SHELL) is not 'bash'. This script might not work properly. Sleeping for $sleeptime seconds" >&2; sleep "$sleeptime"; fi'
 set -e
 require_cmd() {
 	for cmd in "$@"; do if ! command -v "$cmd" &>/dev/null; then
