@@ -36,7 +36,7 @@ if [ "$elmgr" ]; then
 	mynotify "Using package manager '$elmgr' to install packages"
 	"$elmgr" plugin-manager --set-enabled powertools
 	"$elmgr" install -y epel-release
-	"$elmgr" install -y tmux nano csh ksh perl tar nc java redhat-lsb
+	"$elmgr" install -y tmux nano tcsh ksh perl tar nc java redhat-lsb
 	"$elmgr" upgrade -y
 else
 	mynotify "No compatible package manager found. Skipping package installation"
