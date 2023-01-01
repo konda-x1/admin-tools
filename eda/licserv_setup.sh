@@ -34,10 +34,11 @@ for i in dnf yum; do
 done
 if [ "$elmgr" ]; then
 	mynotify "Using package manager '$elmgr' to install packages"
-	"$elmgr" plugin-manager --set-enabled powertools
-	"$elmgr" install -y epel-release
-	"$elmgr" install -y tmux nano tcsh ksh perl tar nc java redhat-lsb
+#    sed -i -e 's/^mirrorlist=/#mirrorlist=/' -e 's/^#baseurl=/baseurl=/' /etc/yum.repos.d/*.repo # For use in restricted networks
 	"$elmgr" upgrade -y
+#	"$elmgr" config-manager --set-enabled powertools
+#	"$elmgr" install -y epel-release
+	"$elmgr" install -y tmux nano tcsh ksh perl tar nc java redhat-lsb
 else
 	mynotify "No compatible package manager found. Skipping package installation"
 fi
