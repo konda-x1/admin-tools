@@ -2,6 +2,8 @@
 
 # Sets up rocky, epel, and powertools repositories, and uses static mirror URLs rather than mirror lists.
 
+set -e
+
 ROCKY_MIRROR_BASE='http://dl.rockylinux.org/'
 EPEL_MIRROR_BASE='https://download.example/pub/epel/'
 

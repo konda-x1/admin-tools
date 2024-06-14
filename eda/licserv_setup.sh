@@ -14,6 +14,8 @@
 # The administrator is to recreate these symlinks that point to actual data on disk.
 # Ideally, the symlinks should point to items that are located in the same directory.
 
+set -e
+
 [ "$lcu_root" ] || lcu_root="/eda/cadence/LCU"
 [ "$lcu_bin_dir" ] || lcu_bin_dir="$lcu_root/current/bin"
 [ "$service_root" ] || service_root="/etc/systemd/system"
