@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Description:
 # Sets up a directory hierarchy for FlexLM license server. Also creates the appropriate
 # user and group, sets the appropriate permissions in the directory hierarchy, and
 # produces a systemd service file. Also installs the necessary packages and some optional

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Description:
 # Provides a VNC connection to a Xen VM without the need to configure networking or install
 # a VNC server on the target VM, as long as there is a connection to the Xen server itself.
 #
