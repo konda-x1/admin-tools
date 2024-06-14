@@ -76,7 +76,7 @@ Description=FlexLM license server
 Type=simple
 User=flexlm
 SuccessExitStatus=15
-ExecStart=/bin/sh -c '$lcu_bin_dir/lmgrd -z -c $lcu_root/licenses/current.lic -l $lcu_root/logs/debug_\$(date +%%Y-%%m-%%d_%%H-%%M-%%S).log'
+ExecStart=/bin/sh -c '$lcu_bin_dir/lmgrd -z -c $lcu_root/licenses/current.lic -l +$lcu_root/logs/debug.log'
 ExecStop=/bin/sh -c '$lcu_bin_dir/lmutil lmdown -c $lcu_root/licenses/current.lic -all -force || true'
 
 [Install]
